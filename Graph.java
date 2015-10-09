@@ -32,4 +32,17 @@ public class Graph {
 		}
 		return true;		
 	}
+	
+	public int numChains(){
+		/*
+		 * number of chains should be equal to
+		 * number of nodes - number of active edges
+		 */
+		int numNodes = nodes.size();
+		int numActiveEdges = 0;
+		for (int i = 0; i < edges.size(); i++){
+			if(edges.get(i).isActive) numActiveEdges++;
+		}
+		return numNodes - numActiveEdges;
+	}
 }
