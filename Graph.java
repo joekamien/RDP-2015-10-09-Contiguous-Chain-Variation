@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Graph {
-	private HashMap<Point, Node> nodes;
+	private HashMap<Point, Node> nodes = new HashMap<Point, Node>();
 	private ArrayList<Edge> edges;
 	private int maxX, maxY;
 	
@@ -13,6 +13,10 @@ public class Graph {
 	
 	public void addNode (Point location, Node node){
 		nodes.put(location, node);
+	}
+	
+	public void addNode (Point location){
+		addNode(location, new Node());
 	}
 	
 	public void addEdge (Point location0, Point location1){
@@ -53,10 +57,13 @@ public class Graph {
 	}
 	
 	public String toString(){
+		if(nodes.size() == 0) return "Graph contains no nodes.";
+		
 		String s = "";
 		for(int y = 0; y < maxY; y++){
 			for (int x = 0; x < maxX; x++){
-				if(nodes.containsKey(new Point(x,y))){
+				Point p = new Point (x,y);
+				if(nodes.containsKey(p)){
 					s += "X";
 				}
 				else{
