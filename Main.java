@@ -21,7 +21,10 @@ public class Main {
 		
 		scanner.close();
 		
+		//finished reading input and generating nodes
+		g.generateEdges();
 		
+		System.out.println(g.minChains());
 	}
 
 }
