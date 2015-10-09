@@ -4,6 +4,12 @@ import java.util.HashMap;
 public class Graph {
 	private HashMap<Point, Node> nodes;
 	private ArrayList<Edge> edges;
+	private int maxX, maxY;
+	
+	public Graph (int myMaxX, int myMaxY){
+		maxX = myMaxX;
+		maxY = myMaxY;
+	}
 	
 	public void addNode (Point location, Node node){
 		nodes.put(location, node);
@@ -44,5 +50,21 @@ public class Graph {
 			if(edges.get(i).isActive) numActiveEdges++;
 		}
 		return numNodes - numActiveEdges;
+	}
+	
+	public String toString(){
+		String s = "";
+		for(int y = 0; y < maxY; y++){
+			for (int x = 0; x < maxX; x++){
+				if(nodes.containsKey(new Point(x,y))){
+					s += "X";
+				}
+				else{
+					s += " ";
+				}
+			}
+			s += "\n";
+		}
+		return s;
 	}
 }
