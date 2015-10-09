@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Graph {
@@ -19,5 +20,13 @@ public class Graph {
 		node1.addEdge(newEdge);
 		
 		edges.add(newEdge);
+	}
+	
+	public boolean isValid(){
+		ArrayList<Node> tempNodes = new ArrayList(nodes.values());
+		for(int i = 0; i < tempNodes.size(); i++){
+			if (tempNodes.get(i).numActiveEdges() > 2) return false;
+		}
+		return true;		
 	}
 }
