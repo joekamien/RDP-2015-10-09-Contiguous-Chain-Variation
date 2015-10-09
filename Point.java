@@ -19,4 +19,8 @@ public class Point {
     public int hashCode() {
         return 31 * x + y;
     }
+	
+	public String toString(){
+		return "(" + x + ", " + y + ")";
+	}
 }
